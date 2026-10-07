@@ -3,6 +3,23 @@
     <a href="/tasks">Task List</a> |
     <a href="/profile">Profile</a> |
     <a href="/about">About</a>
+    |
+<?php if (session()->get('isLoggedIn')): ?>
+    <span>
+        Logged in as <?= esc(session()->get('username')) ?>
+    </span>
+
+    <form
+        action="<?= site_url('logout') ?>"
+        method="post"
+        style="display: inline;"
+    >
+        <?= csrf_field() ?>
+        <button type="submit">Logout</button>
+    </form>
+<?php else: ?>
+    <a href="<?= site_url('login') ?>">Login</a>
+<?php endif; ?>
 </nav>
 
 <hr>

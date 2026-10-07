@@ -12,7 +12,13 @@ class TaskModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields = [
+    'title',
+    'status',
+    'task_date',
+    'is_archived',
+    'created_at',
+];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
